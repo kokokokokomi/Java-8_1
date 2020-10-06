@@ -4,7 +4,7 @@ on: [push] # когда срабатывает (на push)
 
 jobs: # какие задачи делаем
   build: # сборка
-    runs-on: windows-latest # на какой ОС запускаем
+    runs-on: ubuntu-latest # на какой ОС запускаем
 
     steps: # какие шаги выполняем
       - uses: actions/checkout@v2 # выкачиваем репо
