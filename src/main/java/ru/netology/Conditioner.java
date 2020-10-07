@@ -59,10 +59,10 @@ public class Conditioner {
 
     public void increaseCurrentTemperature() {
         int increasedTemperature = getCurrentTemperature() + 1;
-        if (increasedTemperature <= maxTemperature) {
+        if (increasedTemperature < maxTemperature) {
             this.currentTemperature = increasedTemperature;
         }
-        if (increasedTemperature > maxTemperature) {
+        if (increasedTemperature >= maxTemperature) {
             return;
         }
     }
