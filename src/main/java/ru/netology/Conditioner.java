@@ -23,7 +23,7 @@ public class Conditioner {
         this.maxTemperature = maxTemperature;
     }
 
-    public int getMinTemperature() {
+    public int getMinTemperature(int i) {
         return minTemperature;
     }
 
@@ -35,39 +35,45 @@ public class Conditioner {
         return currentTemperature;
     }
 
-    public void setCurrentTemperature(int currentTemperature) {
-        if (currentTemperature > maxTemperature) {
-            return;
-        }
-        if (currentTemperature < minTemperature) {
-            return;
-        }
-
-        this.currentTemperature = currentTemperature;
-    }
-
-
     public boolean isOn() {
         return on;
     }
 
-    public void setOn(boolean on) {
-        this.on = on;
+    public void setCurrentTemperature1(int currentTemperature) {
+        if (currentTemperature < maxTemperature) {
+            this.currentTemperature = currentTemperature;
+        }
+        if (currentTemperature >= maxTemperature) {
+            return;
+        }
     }
 
-    public void increaseCurrentTemperature(int currentTemperature) {
+    public void setCurrentTemperature2(int currentTemperature) {
+        if (currentTemperature > minTemperature) {
+            this.currentTemperature = currentTemperature;
+        }
+        if (currentTemperature <= minTemperature) {
+            return;
+        }
+    }
+
+    public void increaseCurrentTemperature() {
         int increasedTemperature = getCurrentTemperature() + 1;
+        if (increasedTemperature <= maxTemperature) {
+            this.currentTemperature = increasedTemperature;
+        }
         if (increasedTemperature > maxTemperature) {
             return;
         }
-        this.currentTemperature = increasedTemperature;
     }
 
-    public void decreaseCurrentTemperature(int currentTemperature) {
+    public void decreaseCurrentTemperature() {
         int decreasedTemperature = getCurrentTemperature() - 1;
-        if (decreasedTemperature < minTemperature) {
+        if (decreasedTemperature > minTemperature) {
+            this.currentTemperature = decreasedTemperature;
+        }
+        if (decreasedTemperature <= minTemperature) {
             return;
         }
-        this.currentTemperature = decreasedTemperature;
     }
 }
